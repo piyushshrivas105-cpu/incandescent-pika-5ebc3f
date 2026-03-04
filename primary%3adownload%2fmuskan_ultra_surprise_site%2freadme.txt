@@ -1,0 +1,1 @@
+Add photo1.jpg-photo8.jpg, message.mp4 and music.mp3 then upload to Netlify to get a link.

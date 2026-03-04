@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise for my betu ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#ffd6e7;
+text-align:center;
+overflow-x:hidden;
+color:#d1006f;
+}
+
+/* moving white hearts background */
+.bg-heart{
+position:fixed;
+color:white;
+opacity:0.8;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+/* intro screen */
+#intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.neon{
+font-size:42px;
+color:#ff2d75;
+text-shadow:0 0 5px #fff,0 0 10px #ff6aa5,0 0 20px #ff2d75;
+}
+
+.typing{
+margin-top:15px;
+font-size:22px;
+height:30px;
+}
+
+/* gift box */
+.giftbox{
+width:120px;
+height:120px;
+background:#ff4d88;
+margin-top:25px;
+position:relative;
+transform-style:preserve-3d;
+animation:openBox 3s forwards;
+}
+
+.lid{
+width:120px;
+height:30px;
+background:#ff77aa;
+position:absolute;
+top:-30px;
+left:0;
+transform-origin:bottom;
+animation:lidOpen 3s forwards;
+}
+
+@keyframes lidOpen{
+0%{transform:rotateX(0)}
+100%{transform:rotateX(-120deg)}
+}
+
+.section{
+display:none;
+padding:30px;
+max-width:800px;
+margin:auto;
+}
+
+button{
+background:#ff4d88;
+border:none;
+padding:12px 22px;
+color:white;
+font-size:16px;
+border-radius:10px;
+cursor:pointer;
+margin:10px;
+}
+
+.slideshow img{
+width:80%;
+border-radius:20px;
+}
+
+/* petals */
+.petal{
+position:fixed;
+font-size:22px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+/* cake */
+.cake{
+font-size:90px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<div class="neon">Muskan ❤️ Piyush</div>
+<div class="typing" id="typing"></div>
+
+<div class="giftbox">
+<div class="lid"></div>
+</div>
+
+</div>
+
+<div id="main" class="section">
+
+<h1>🎂 Happy Birthday Muskan Betu 🎂</h1>
+
+<p>
+Happy Birthday mela baccha, mera betu, meri Shona, Muskan ❤️<br><br>
+Today is a very special day for me because today the most beautiful person in my life was born.<br><br>
+You're the precious part of my life and I feel lucky that you're in my life.<br><br>
+From the day you came into my life, everything started feeling more beautiful.<br><br>
+Your smile makes my day brighter aur tumhari awaaz mere dil ko sukoon deti hai.<br><br>
+You are not just someone I love, you are my happiness, my peace, and the most important part of my life.<br><br>
+On your birthday I pray your life is filled with happiness, success and endless love.<br><br>
+Forever yours,<br>
+Piyush ❤️
+</p>
+
+<button onclick="showVideo()">A message for you🤞🏻</button>
+<button onclick="showPhotos()">Your memories</button>
+
+<div id="video" style="display:none;">
+<video width="80%" controls>
+<source src="message.mp4" type="video/mp4">
+</video>
+</div>
+
+<div id="photos" style="display:none;" class="slideshow">
+<img id="slide" src="photo1.jpg">
+</div>
+
+<h2>Blow the Birthday Candle 🎂</h2>
+<div class="cake" onclick="fireworks()">🎂</div>
+<p id="wish"></p>
+
+</div>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* typing effect */
+var text="Muskan… you are my everything ❤️"
+var i=0
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i)
+i++
+setTimeout(type,70)
+}
+}
+type()
+
+/* auto open main page */
+setTimeout(function(){
+document.getElementById("intro").style.display="none"
+document.getElementById("main").style.display="block"
+burstPetals()
+},3500)
+
+/* moving hearts background */
+for(let i=0;i<40;i++){
+let h=document.createElement("div")
+h.className="bg-heart"
+h.innerHTML="🤍"
+h.style.left=Math.random()*100+"%"
+h.style.fontSize=(12+Math.random()*18)+"px"
+h.style.animationDuration=(5+Math.random()*6)+"s"
+document.body.appendChild(h)
+}
+
+/* rose burst */
+function burstPetals(){
+for(let i=0;i<30;i++){
+let p=document.createElement("div")
+p.className="petal"
+p.innerHTML="🌹"
+p.style.left=Math.random()*100+"%"
+p.style.animationDuration=(4+Math.random()*4)+"s"
+document.body.appendChild(p)
+}
+}
+
+/* slideshow */
+var photos=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg","photo8.jpg"]
+var index=0
+
+function showPhotos(){
+document.getElementById("photos").style.display="block"
+setInterval(function(){
+index=(index+1)%photos.length
+document.getElementById("slide").src=photos[index]
+},2000)
+}
+
+/* video button */
+function showVideo(){
+document.getElementById("video").style.display="block"
+}
+
+/* fireworks */
+function fireworks(){
+document.getElementById("wish").innerHTML="Make a wish Muskan ❤️ 🎆🎆🎆"
+}
+
+</script>
+
+</body>
+</html>
